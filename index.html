@@ -642,13 +642,13 @@
             <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Si un mes no pagas, la app se pausa y ya. Tus datos se quedan guardados en tu cuenta.</span></li>
           </ul>
           <a class="btn btn-amber" href="mailto:nexustaller.app@gmail.com?subject=Quiero%20mi%20prueba%20gratis%20de%20NexusTaller&amp;body=Hola%2C%20quiero%20activar%20los%2030%20d%C3%ADas%20gratis%20de%20NexusTaller%20para%20mi%20taller.%0A%0ANombre%20de%20mi%20taller%3A%20">Empezar mi prueba gratis</a> <a class="btn btn-pay" href="https://buy.stripe.com/6oU7sL3DZ7pE6fkdlp9AA00" target="_blank" rel="noopener">Pagar mi suscripción — $299 MXN/mes</a>
-          <p class="fineprint">Estamos en los últimos ajustes antes del lanzamiento. Por hoy, la prueba se activa por correo: escríbenos a nexustaller.app@gmail.com y te la dejamos lista. El pago en línea ya está prendido aquí mismo, con Stripe (en modo de prueba por ahora; el enlace real llega cuando se active la cuenta). Y ojo: el cobro va por la página web, no dentro de la app; la app nomás checa que tu suscripción esté al corriente.</p>
+          <p class="fineprint">Estamos en los últimos ajustes antes del lanzamiento. Por hoy, la prueba se activa por correo: escríbenos a nexustaller.app@gmail.com y te la dejamos lista. El pago en línea ya está prendido aquí mismo, con Stripe. Y ojo: el cobro va por la página web, no dentro de la app; la app nomás checa que tu suscripción esté al corriente.</p>
         </div>
         <div class="how">
           <h3>Así va la suscripción, paso a paso</h3>
           <div class="how-step"><span class="how-n">1</span><div><strong>Abres tu cuenta y arranca el mes gratis</strong><p>Desde el primer día traes la app completa por 30 días. Sin registrar tarjeta ni nada.</p></div></div>
           <div class="how-step"><span class="how-n">2</span><div><strong>Cuando se acaba la prueba, pagas en esta página</strong><p>Los $299 MXN del mes se pagan aquí, en nexustaller.com, con Stripe. Dentro de la app no se vende nada.</p></div></div>
-          <div class="how-step"><span class="how-n">3</span><div><strong>La app checa tu pago y sigues jalando</strong><p>Con la suscripción activa entras como siempre. Si llega el día 31 y no hay pago, la app se bloquea hasta que la actives. Tus órdenes y tus clientes no se borran.</p></div></div>
+          <div class="how-step"><span class="how-n">3</span><div><strong>La app checa tu pago y sigues jalando</strong><p>Con la suscripción activa entras como siempre y sigues trabajando con todo. Tus órdenes y tus clientes están guardados en tu cuenta.</p></div></div>
 
           <div class="calc">
             <label for="calc-date">Haz la cuenta: ¿qué día abrirías tu cuenta?</label>
@@ -767,8 +767,8 @@
         <div class="body"><p>Sí. Stripe acepta OXXO en efectivo y SPEI por transferencia, además de tarjeta, Apple Pay y Google Pay. Pero tenlo presente: <strong>el cobro automático mensual aplica con tarjeta, Apple Pay o Google Pay. Con OXXO o SPEI no hay cobro automático: el pago se hace manual cada mes.</strong></p></div>
       </details>
       <details>
-        <summary>¿Y si llega el día 31 y no pagué?</summary>
-        <div class="body"><p>La app se bloquea hasta que actives tu suscripción de $299 MXN. Nada se pierde: tus órdenes, cotizaciones y clientes siguen guardados en tu cuenta, y en cuanto pagas entras y todo está como lo dejaste.</p></div>
+        <summary>¿Qué pasa cuando se acaban los 30 días gratis?</summary>
+        <div class="body"><p>Solo activas tu suscripción de $299 MXN al mes y sigues usando todo como siempre. Nada se pierde: tus órdenes, cotizaciones y clientes siguen guardados en tu cuenta.</p></div>
       </details>
       <details>
         <summary>¿Otro taller puede ver mis carros o mis clientes?</summary>
@@ -857,7 +857,7 @@
           <details>
             <summary>Seguridad, cuánto tiempo se guardan y tus derechos</summary>
             <div class="body">
-              <p>Entras con tu cuenta y tu contraseña, y los datos de cada taller están aislados de los demás. Si tu suscripción vence, el acceso se bloquea, pero tus datos se quedan guardados en tu cuenta.</p>
+              <p>Entras con tu cuenta y tu contraseña, y los datos de cada taller están aislados de los demás. Tus datos se quedan guardados en tu cuenta.</p>
               <p>Si quieres corregir o borrar los datos de tu taller, escríbenos a <a href="mailto:nexustaller.app@gmail.com">nexustaller.app@gmail.com</a>. Atendemos tu petición y te confirmamos por ese mismo correo.</p>
             </div>
           </details>
@@ -938,7 +938,7 @@
       'Tu prueba corre del <strong>' + cap(fmt.format(start)) + '</strong> al <strong>' +
       cap(fmt.format(lastFree)) + '</strong>: 30 días completos, con todo. ' +
       'Si para el <span class="warn">' + cap(fmt.format(blockDay)) + '</span> no activaste tu suscripción, ' +
-      'la app se bloquea hasta que pagues los $299 MXN del mes. Tus datos no se borran.';
+      'solo la activas con los $299 MXN del mes y sigues usando todo como siempre. Tus datos no se borran.';
   }
   dateInput.addEventListener('change', updateCalc);
   updateCalc();
