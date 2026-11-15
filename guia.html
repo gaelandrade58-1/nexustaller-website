@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guía de uso — NexusTaller</title>
+<meta name="description" content="Guía paso a paso para usar NexusTaller: crea tu cuenta, configura tu taller y tus bahías, abre órdenes, cotiza, factura y lleva tu caja, en el celular o en la computadora." />
+<link rel="canonical" href="https://nexustaller.com/guia.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Guía de uso — NexusTaller" />
+<meta property="og:description" content="Todo lo necesario para trabajar con NexusTaller desde el primer día, paso a paso." />
+<meta property="og:url" content="https://nexustaller.com/guia.html" />
+<meta property="og:site_name" content="NexusTaller" />
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#f4f2ed;
+    --bg-2:#ece8df;
+    --surface:#ffffff;
+    --surface-2:#faf8f4;
+    --ink:#1c2126;
+    --ink-2:#454e57;
+    --ink-3:#6b757f;
+    --line:#ddd6c9;
+    --steel:#2f5d8a;
+    --steel-deep:#1d3d5c;
+    --steel-soft:#e3ecf4;
+    --amber:#e08a1e;
+    --amber-deep:#b96e0e;
+    --amber-soft:#fdf0dc;
+    --ok:#2e7d46;
+    --ok-soft:#e2f1e6;
+    --shadow:0 18px 40px -18px rgba(28,33,38,.28);
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#12161a;
+      --bg-2:#171c21;
+      --surface:#1d232a;
+      --surface-2:#232a32;
+      --ink:#eef1f4;
+      --ink-2:#c2cbd3;
+      --ink-3:#8d99a4;
+      --line:#333d47;
+      --steel:#6ea3d4;
+      --steel-deep:#a8c8e8;
+      --steel-soft:#22374d;
+      --amber:#f0a63c;
+      --amber-deep:#f5bc66;
+      --amber-soft:#3d2f16;
+      --ok:#6fce8d;
+      --ok-soft:#1e3527;
+      --shadow:0 18px 40px -18px rgba(0,0,0,.6);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; overflow-x:clip}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size:17px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:clip;
+    overflow-wrap:break-word;
+  }
+  img{max-width:100%}
+  button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2.75rem}
+  a{color:var(--steel)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 clamp(16px,4vw,32px)}
+  @media (min-width:1500px){ .wrap{max-width:1240px} }
+  h1,h2,h3{font-family:"Barlow Condensed","Barlow",sans-serif; letter-spacing:.01em; line-height:1.08; margin:0}
+  h2{font-size:clamp(30px,4.5vw,42px); font-weight:700; text-transform:uppercase}
+  h3{font-size:22px; font-weight:600}
+  .sec-head{max-width:660px; margin-bottom:28px}
+  .sec-head p{color:var(--ink-2); margin:10px 0 0; font-size:17.5px}
+  section{padding:64px 0 8px}
+
+  /* ---------- top nav ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{display:flex; align-items:center; gap:14px 18px; padding:10px 0; flex-wrap:wrap}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); margin-right:auto; min-height:48px}
+  .brand-mark{
+    width:38px; height:38px; border-radius:9px; background:var(--steel-deep); color:#fff;
+    display:grid; place-items:center; flex:none;
+  }
+  @media (prefers-color-scheme: dark){ .brand-mark{background:var(--steel); color:#10161c} }
+  .brand-name{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:24px; letter-spacing:.02em; line-height:1}
+  .brand-name em{font-style:normal; color:var(--amber-deep)}
+  .brand small{display:block; font-family:"Barlow",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.04em; text-transform:uppercase; margin-top:2px}
+  .brand small b{color:var(--steel); font-weight:700; text-transform:none; letter-spacing:0}
+  .navlinks{display:flex; gap:4px; flex-wrap:wrap; align-items:center}
+  .navlinks a{
+    color:var(--ink-2); text-decoration:none; font-weight:600; font-size:15.5px;
+    padding:8px 12px; border-radius:8px; min-height:44px; display:inline-flex; align-items:center;
+  }
+  .navlinks a:hover{background:var(--surface); color:var(--ink)}
+  .nav-cta{
+    background:var(--amber); color:#241703 !important; font-weight:700;
+  }
+  .nav-cta:hover{background:var(--amber-deep); color:#fff !important}
+
+  /* ---------- hero ---------- */
+  .hero{padding:44px 0 8px}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(24px,4vw,48px); align-items:start}
+  .hero h1{font-size:clamp(38px,6vw,62px); font-weight:700; text-transform:uppercase}
+  .hero h1 .hl{color:var(--amber-deep)}
+  .hero .lede{font-size:19px; color:var(--ink-2); margin:16px 0 0; max-width:54ch}
+  .hero .lede strong{color:var(--ink)}
+  .hero-points{list-style:none; margin:20px 0 0; padding:0; display:grid; gap:9px}
+  .hero-points li{display:flex; gap:10px; align-items:flex-start; font-weight:500}
+  .hero-points svg{flex:none; margin-top:3px; color:var(--ok)}
+  .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:26px}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:12px 22px; border-radius:10px; font-weight:700; font-size:16.5px;
+    text-decoration:none; border:1px solid transparent; cursor:pointer; min-height:52px;
+    font-family:inherit; text-align:center;
+  }
+  .btn-amber{background:var(--amber); color:#241703}
+  .btn-amber:hover{background:var(--amber-deep); color:#fff}
+  .btn-ghost{background:var(--surface); color:var(--ink); border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--steel)}
+  .hero-note{font-size:14.5px; color:var(--ink-3); margin-top:12px}
+  .hero-note a{font-weight:600}
+  .hero-fig{margin:0}
+  .hero-fig img{width:100%; height:auto; display:block; border-radius:var(--radius); box-shadow:var(--shadow)}
+  .hero-fig figcaption{font-size:13.5px; color:var(--ink-3); margin-top:8px; text-align:right}
+
+  /* mock order card */
+  .mock{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:18px 18px 14px; margin-top:14px; margin-left:22px; margin-right:22px; position:relative;
+  }
+  .mock-top{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
+  .mock-id{font-family:"Barlow Semi Condensed",sans-serif; font-weight:600; font-size:19px}
+  .pill{font-size:13px; font-weight:700; padding:4px 11px; border-radius:999px; background:var(--amber-soft); color:var(--amber-deep)}
+  .mock-car{color:var(--ink-2); font-size:15.5px; margin-top:2px}
+  .mock-rows{margin:12px 0 4px; border-top:1px dashed var(--line)}
+  .mock-rows div{display:flex; justify-content:space-between; gap:12px; padding:7px 0; border-bottom:1px dashed var(--line); font-size:15.5px}
+  .mock-rows span:first-child{color:var(--ink-2)}
+  .mock-rows span:last-child{white-space:nowrap; font-variant-numeric:tabular-nums}
+  .mock-rows .total{font-weight:700; font-size:17px}
+  .mock-rows .total span:first-child{color:var(--ink)}
+  .mock-steps{display:flex; gap:6px; margin-top:12px; flex-wrap:wrap}
+  .mock-steps span{font-size:13px; font-weight:600; padding:5px 10px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink-3)}
+  .mock-steps span.done{background:var(--ok-soft); color:var(--ok); border-color:transparent}
+  .mock-steps span.now{background:var(--steel-soft); color:var(--steel-deep); border-color:transparent}
+
+  /* ---------- flow tabs ---------- */
+  .tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px}
+  .tab{
+    font-family:inherit; font-size:16px; font-weight:600; cursor:pointer;
+    padding:10px 18px; border-radius:999px; border:1px solid var(--line);
+    background:var(--surface); color:var(--ink-2); min-height:48px;
+    flex:0 1 auto;
+  }
+  .tab[aria-selected="true"]{background:var(--steel-deep); color:#fff; border-color:var(--steel-deep)}
+  @media (prefers-color-scheme: dark){ .tab[aria-selected="true"]{background:var(--steel); color:#10161c; border-color:var(--steel)} }
+  .tab-panel{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px; display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:start;
+  }
+  .tab-panel[hidden]{display:none}
+  .tab-num{
+    font-family:"Barlow Condensed",sans-serif; font-size:52px; font-weight:700; line-height:1;
+    color:var(--amber-deep);
+  }
+  .tab-panel h3{margin-bottom:6px}
+  .tab-panel p{margin:0; color:var(--ink-2); max-width:62ch}
+  .tab-panel ul{margin:12px 0 0; padding-left:20px; color:var(--ink-2)}
+  .tab-panel li{margin:4px 0}
+
+  /* ---------- features ---------- */
+  .feat-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 44px}
+  .feat{display:flex; gap:16px; padding:20px 0; border-bottom:1px solid var(--line)}
+  .feat-ico{
+    width:46px; height:46px; border-radius:11px; flex:none; display:grid; place-items:center;
+    background:var(--steel-soft); color:var(--steel-deep);
+  }
+  @media (prefers-color-scheme: dark){ .feat-ico{color:var(--steel)} }
+  .feat h3{font-size:20px; margin-bottom:4px}
+  .feat p{margin:0; color:var(--ink-2); font-size:16px}
+
+  /* ---------- pricing ---------- */
+  .price-grid{display:grid; grid-template-columns:.92fr 1.08fr; gap:28px; align-items:start}
+  .price-card{
+    background:var(--steel-deep); color:#eaf2f9; border-radius:18px; padding:30px 28px;
+    box-shadow:var(--shadow);
+  }
+  @media (prefers-color-scheme: dark){ .price-card{background:#1d324a} }
+  .price-card .plan{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.06em; font-size:17px; color:#f5bc66; font-weight:600}
+  .price-amount{display:flex; align-items:baseline; gap:8px; margin:10px 0 2px; flex-wrap:wrap}
+  .price-amount .num{font-family:"Barlow Condensed",sans-serif; font-size:72px; font-weight:700; line-height:1}
+  .price-amount .per{font-size:18px; color:#bcd2e6}
+  .price-card .iva{color:#9db8cf; font-size:14.5px}
+  .price-list{list-style:none; margin:20px 0 0; padding:18px 0 0; border-top:1px solid rgba(255,255,255,.18); display:grid; gap:10px}
+  .price-list li{display:flex; gap:10px; align-items:flex-start; font-size:16.5px}
+  .price-list svg{flex:none; margin-top:4px; color:#f0a63c}
+  .price-card .btn{width:100%; margin-top:24px} .price-card .btn-pay{margin-top:12px; background:#fff; color:var(--steel-deep); border-color:#fff} .price-card .btn-pay:hover{background:var(--steel-soft); color:var(--steel-deep); border-color:var(--steel-soft)}
+  .price-card .fineprint{font-size:13.5px; color:#9db8cf; text-align:center; margin:12px 0 0}
+  .how h3{margin-bottom:14px}
+  .how-step{display:flex; gap:14px; padding:13px 0; border-bottom:1px solid var(--line)}
+  .how-step:last-of-type{border-bottom:none}
+  .how-n{
+    width:30px; height:30px; border-radius:50%; flex:none; display:grid; place-items:center;
+    background:var(--amber-soft); color:var(--amber-deep); font-weight:700; font-size:15px; margin-top:2px;
+  }
+  .how-step p{margin:2px 0 0; color:var(--ink-2); font-size:16px}
+  .how-step strong{font-size:16.5px}
+  .calc{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px; margin-top:20px;
+  }
+  .calc label{font-weight:600; display:block; margin-bottom:8px}
+  .calc input[type="date"]{
+    font-family:inherit; font-size:16.5px; padding:9px 12px; border-radius:9px;
+    border:1px solid var(--line); background:var(--surface-2); color:var(--ink); width:100%; max-width:280px; min-height:48px;
+  }
+  .calc-out{margin:14px 0 0; color:var(--ink-2); font-size:16px}
+  .calc-out strong{color:var(--ink)}
+  .calc-out .warn{color:var(--amber-deep); font-weight:700}
+  .pay-note{
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--amber-soft); border:1px solid var(--amber);
+    border-radius:var(--radius); padding:18px 20px; margin-top:22px;
+  }
+  .pay-note svg{flex:none; margin-top:2px; color:var(--amber-deep)}
+  .pay-note p{margin:0; color:var(--ink); font-size:16px}
+  .pay-note strong{color:var(--amber-deep)}
+
+  /* ---------- guia PAC ---------- */
+  #guia-pac{scroll-margin-top:84px}
+  .guide-intro{max-width:68ch}
+  .guide-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start}
+  .guide-block{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px}
+  .guide-block.wide{grid-column:1 / -1}
+  .guide-block h3{font-size:20px; margin-bottom:4px; display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .guide-block .guide-tag{font-family:"Barlow",sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; background:var(--steel-soft); color:var(--steel-deep); padding:4px 9px; border-radius:999px}
+  .guide-block .guide-tag.amber{background:var(--amber-soft); color:var(--amber-deep)}
+  .guide-block>p{margin:0 0 6px; color:var(--ink-2); font-size:15.5px}
+  .guide-list{list-style:none; margin:10px 0 0; padding:0; display:grid; gap:14px}
+  .guide-list li{display:flex; gap:12px; align-items:flex-start}
+  .guide-num{width:30px; height:30px; border-radius:50%; flex:none; display:grid; place-items:center; background:var(--steel-soft); color:var(--steel-deep); font-weight:700; font-size:14.5px; margin-top:1px; font-variant-numeric:tabular-nums}
+  .guide-num.amber{background:var(--amber-soft); color:var(--amber-deep)}
+  @media (prefers-color-scheme: dark){ .guide-num,.guide-block .guide-tag{color:var(--steel)} .guide-num.amber,.guide-block .guide-tag.amber{color:var(--amber-deep)} }
+  .guide-list p{margin:0; color:var(--ink-2); font-size:16px}
+  .guide-list p strong{color:var(--ink)}
+  .guide-notes{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px}
+  .guide-note{border-radius:var(--radius); padding:20px 22px}
+  .guide-note h3{font-size:20px; margin-bottom:6px}
+  .guide-note p{margin:0; font-size:16px}
+  .guide-note.warn{background:var(--amber-soft); border:1px solid var(--amber)}
+  .guide-note.warn p{color:var(--ink)}
+  .guide-note.warn h3{color:var(--amber-deep)}
+  .guide-note.cost{background:var(--surface); border:1px solid var(--line)}
+  .guide-note.cost p{color:var(--ink-2)}
+  .guide-note.cost p strong{color:var(--ink)}
+
+  /* ---------- devices note ---------- */
+  .devices{
+    display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 22px; margin-top:26px;
+  }
+  .devices svg{flex:none; color:var(--steel-deep); margin-top:2px}
+  @media (prefers-color-scheme: dark){ .devices svg{color:var(--steel)} }
+  .devices div{flex:1 1 260px}
+  .devices h3{font-size:20px; margin-bottom:4px}
+  .devices p{margin:0; color:var(--ink-2); font-size:16px}
+
+  /* ---------- faq / privacy ---------- */
+  details{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; margin-bottom:10px;
+  }
+  summary{
+    cursor:pointer; font-weight:600; font-size:17px; padding:14px 18px; list-style:none;
+    display:flex; justify-content:space-between; align-items:center; gap:12px; min-height:56px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+"; font-size:24px; font-weight:400; color:var(--amber-deep); line-height:1; flex:none}
+  details[open ] summary::after{content:"–"}
+  details .body{padding:0 18px 16px; color:var(--ink-2); font-size:16px}
+  details .body p{margin:0 0 10px}
+  details .body p:last-child{margin-bottom:0}
+  details .body ul{margin:0 0 10px; padding-left:20px}
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start}
+  .privacy-lead{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px}
+  .privacy-lead ul{margin:10px 0 0; padding-left:20px; color:var(--ink-2)}
+  .privacy-lead li{margin:5px 0}
+  .privacy-lead p{margin:0 0 10px; color:var(--ink-2)}
+  .privacy-lead p:last-child{margin-bottom:0}
+
+  /* ---------- contact / footer ---------- */
+  .contact-band{
+    background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding:30px; display:flex; gap:24px; align-items:center; flex-wrap:wrap; margin-top:8px;
+  }
+  .contact-band h2{font-size:32px}
+  .contact-band p{margin:6px 0 0; color:var(--ink-2); max-width:56ch}
+  .contact-band .mail-line{margin-top:10px; font-weight:600}
+  .contact-actions{margin-left:auto; display:flex; gap:10px; flex-wrap:wrap}
+  footer{margin-top:72px; border-top:1px solid var(--line); padding:26px 0 40px; color:var(--ink-3); font-size:14.5px}
+  .foot-in{display:flex; gap:10px 18px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+  .foot-in .foot-brand{max-width:52ch}
+  .foot-in .foot-brand a{font-weight:600}
+  .foot-in nav{display:flex; gap:6px 16px; flex-wrap:wrap}
+  .foot-in a{color:var(--ink-2); text-decoration:none; padding:6px 2px; display:inline-flex; align-items:center; min-height:44px}
+  .toast{
+    position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(80px);
+    background:var(--ink); color:var(--bg); padding:11px 20px; border-radius:999px; font-weight:600; font-size:15px;
+    opacity:0; transition:transform .25s ease, opacity .25s ease; z-index:60; pointer-events:none;
+    max-width:calc(100vw - 32px); text-align:center;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0); opacity:1}
+  @media (prefers-reduced-motion: reduce){ .toast{transition:none} }
+
+  /* ---------- tablet ---------- */
+  @media (max-width:1024px){
+    .hero-grid{gap:28px}
+    .feat-grid{gap:0 28px}
+    .price-grid{gap:22px}
+  }
+
+  /* ---------- mobile / stack ---------- */
+  @media (max-width:860px){
+    .hero-grid,.price-grid,.two-col,.guide-grid,.guide-notes{grid-template-columns:1fr}
+    .guide-block{padding:20px}
+    .guide-note{padding:18px}
+    .hero-grid,.price-grid,.two-col{grid-template-columns:1fr}
+    .feat-grid{grid-template-columns:1fr}
+    .mock{margin-top:16px; margin-left:0; margin-right:0}
+    .tab-panel{grid-template-columns:1fr; gap:8px; padding:20px}
+    .tab{flex:1 1 calc(50% - 8px)}
+    .contact-actions{margin-left:0}
+    section{padding:48px 0 4px}
+    .hero{padding-top:28px}
+    .topbar-in{gap:8px 12px}
+    .navlinks{width:100%}
+    .navlinks a{padding:8px 10px}
+    .contact-band{padding:22px}
+    .pay-note{padding:16px}
+  }
+  @media (max-width:560px){
+    body{font-size:16.5px}
+    .brand small{display:none}
+    .hero h1{font-size:clamp(34px,11vw,44px)}
+    .hero .lede{font-size:17.5px}
+    .hero-ctas{flex-direction:column}
+    .hero-ctas .btn{width:100%}
+    .price-amount .num{font-size:58px}
+    .price-card{padding:24px 20px}
+    .price-card .btn{width:100%}
+    .contact-actions{width:100%; flex-direction:column}
+    .contact-actions .btn{width:100%}
+    .mock{padding:16px 14px 12px}
+    .mock-steps span{font-size:12.5px; padding:5px 8px}
+    .tab{flex:1 1 100%}
+    .calc input[type="date"]{max-width:100%}
+    .devices{padding:18px}
+    .foot-in{flex-direction:column; align-items:flex-start}
+    summary{font-size:16.5px; padding:12px 14px}
+    details .body{padding:0 14px 14px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="index.html" aria-label="NexusTaller, inicio">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg>
+      </span>
+      <span>
+        <span class="brand-name">NEXUS<em>TALLER</em></span>
+        <small>App para talleres mecánicos · <b>nexustaller.com</b></small>
+      </span>
+    </a>
+    <nav class="navlinks" aria-label="Secciones">
+      <a href="index.html#flujo">Cómo se usa</a>
+      <a href="index.html#funciones">Qué hace</a>
+      <a href="index.html#app-web">App web</a>
+      <a href="guia.html">Guía de uso</a>
+      <a href="index.html#precio">Precio</a>
+      <a href="index.html#guia-pac">Guía PAC</a>
+      <a href="index.html#preguntas">Preguntas</a>
+      <a href="index.html#privacidad">Privacidad</a>
+      <a class="nav-cta" href="index.html#precio">Prueba gratis</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- GUÍA DE USO -->
+  <section id="guia-uso">
+    <div class="wrap">
+      <div class="sec-head guide-intro">
+        <h2>Guía de uso de NexusTaller</h2>
+        <p>Todo lo necesario para trabajar con la app desde el primer día, paso a paso. La app funciona en el celular Android y en la computadora, con la misma cuenta y los mismos datos.</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-block wide">
+          <h3>Antes de empezar</h3>
+          <p>Para usar NexusTaller necesitas:</p>
+          <ol class="guide-list">
+            <li><span class="guide-num">1</span><p><strong>Un correo electrónico y una contraseña</strong> para crear tu cuenta de taller.</p></li>
+            <li><span class="guide-num">2</span><p><strong>Conexión a internet.</strong> Tus datos se guardan en la nube y se sincronizan entre el celular y la computadora.</p></li>
+            <li><span class="guide-num">3</span><p><strong>Tu prueba de 30 días inicia el día que creas tu cuenta</strong>, con todas las funciones y sin registrar tarjeta.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 1</span> Crea tu cuenta</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">4</span><p>Entra a la app y elige <strong>«Registrar Nuevo Taller»</strong>.</p></li>
+            <li><span class="guide-num">5</span><p>Escribe el <strong>nombre de tu taller</strong>, tu <strong>correo electrónico</strong> y una <strong>contraseña</strong>, y elige tu <strong>especialidad</strong>: automotriz, motocicletas, bicicletas, diésel y pesado, o multitransporte.</p></li>
+            <li><span class="guide-num">6</span><p>Al terminar, tu cuenta queda activa y <strong>empiezan tus 30 días gratis</strong>.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 2</span> Configura tu taller</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">7</span><p>En <strong>Configuración</strong> revisa el nombre de tu taller y tu especialidad.</p></li>
+            <li><span class="guide-num">8</span><p>Configura tus <strong>bahías</strong>: escribe sus nombres separados por comas, por ejemplo «Elevador 1, Elevador 2, Bahía Diagnóstico». Cada bahía aparece como una columna en el tablero de producción.</p></li>
+            <li><span class="guide-num">9</span><p>Puedes agregar todas las bahías que tenga tu taller; no hay un número fijo. Si cambias de especialidad, la app te propone bahías nuevas.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 3</span> Registra clientes y vehículos</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">10</span><p>En <strong>Clientes &amp; Unidades</strong> registra a cada cliente con sus vehículos: marca, modelo y placas.</p></li>
+            <li><span class="guide-num">11</span><p>La información queda guardada, así que la próxima vez que ese cliente regrese solo lo seleccionas, sin volver a capturar sus datos.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 4</span> Abre una orden</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">12</span><p>En <strong>Órdenes Activas</strong> crea una <strong>nueva orden</strong> o usa la <strong>recepción rápida</strong> cuando el carro acaba de llegar.</p></li>
+            <li><span class="guide-num">13</span><p>Registra el cliente, el vehículo, la falla o el servicio solicitado, los servicios y la mano de obra. La orden recibe su <strong>folio automático</strong> (ORD-0001, ORD-0002…) y queda en estatus de recepción.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 5</span> Trabaja en el tablero de bahías</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">14</span><p>En el <strong>Tablero de Bahías (Kanban)</strong> asigna el auto a una bahía disponible. Solo se asigna un auto por bahía.</p></li>
+            <li><span class="guide-num">15</span><p>Mueve la orden entre estatus conforme avanza el trabajo: recepción, en reparación, listo para entrega y auto entregado.</p></li>
+            <li><span class="guide-num">16</span><p>Las órdenes sin bahía asignada quedan en recepción o patio, en espera de un espacio libre.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 6</span> Cotiza y convierte a orden</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">17</span><p>En <strong>Cotizaciones</strong> arma la cuenta con servicios, refacciones y mano de obra.</p></li>
+            <li><span class="guide-num">18</span><p>Si cambias un precio, el importe, el subtotal, el IVA y el total se recalculan solos.</p></li>
+            <li><span class="guide-num">19</span><p>Cuando el cliente acepta, la cotización <strong>se convierte en orden</strong> sin volver a capturar nada.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 7</span> Inventario y catálogo</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">20</span><p>En <strong>Catálogo &amp; Inventario</strong> registra tus refacciones con existencias y precios.</p></li>
+            <li><span class="guide-num">21</span><p>Usa el <strong>escáner con la cámara</strong> para registrar más rápido, sin teclear tanto.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 8</span> Caja y finanzas</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">22</span><p>En <strong>Finanzas &amp; Caja</strong> llevas los ingresos del día y los gastos del taller.</p></li>
+            <li><span class="guide-num">23</span><p>Al cerrar el día, genera tu <strong>corte de caja</strong> con el resumen de movimientos.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 9</span> Facturación CFDI</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">24</span><p>En <strong>Facturación CFDI</strong> la app toma la orden y calcula subtotal, IVA y total.</p></li>
+            <li><span class="guide-num">25</span><p>Primero practica en <strong>modo simulación</strong>, sin timbrar nada real.</p></li>
+            <li><span class="guide-num">26</span><p>Para timbrar facturas de verdad, sigue la <a href="index.html#guia-pac">Guía PAC</a>: conecta tu propia cuenta de Facturapi con tu RFC y tu certificado.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block">
+          <h3><span class="guide-tag">Paso 10</span> Avisa a tu cliente por WhatsApp</h3>
+          <ol class="guide-list">
+            <li><span class="guide-num">27</span><p>Desde la orden, envía un <strong>WhatsApp con el enlace de seguimiento</strong>. El mensaje ya viene redactado.</p></li>
+            <li><span class="guide-num">28</span><p>Tu cliente abre el enlace y ve el estatus de su carro: si está en reparación o si ya está listo para entrega.</p></li>
+          </ol>
+        </div>
+
+        <div class="guide-block wide">
+          <h3>Las secciones de la app</h3>
+          <p>El menú de NexusTaller está organizado así:</p>
+          <ol class="guide-list">
+            <li><span class="guide-num">•</span><p><strong>Órdenes Activas:</strong> los carros que están en el taller, con su folio y su estatus.</p></li>
+            <li><span class="guide-num">•</span><p><strong>Tablero de Bahías (Kanban):</strong> cada bahía como columna, con el auto que está trabajando en ella.</p></li>
+            <li><span class="guide-num">•</span><p><strong>Cotizaciones:</strong> presupuestos por cliente, que se convierten en órdenes.</p></li>
+            <li><span class="guide-num">•</span><p><strong>Facturación CFDI:</strong> cálculo y timbrado de facturas.</p></li>
+            <li><span class="guide-num">•</span><p><strong>Finanzas &amp; Caja:</strong> ingresos, gastos y cortes de caja.</p></li>
+            <li><span class="guide-num">•</span><p><strong>Clientes &amp; Unidades:</strong> tus clientes y sus vehículos.</p></li>
+            <li><span class="guide-num">•</span><p><strong>Catálogo &amp; Inventario:</strong> refacciones, existencias y precios.</p></li>
+            <li><span class="guide-num">•</span><p><strong>Mi suscripción:</strong> estado de tu plan, próximo cobro y activación del pago.</p></li>
+            <li><span class="guide-num">•</span><p><strong>Configuración:</strong> datos de tu taller, especialidad, bahías y facturación.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="guide-notes">
+        <div class="guide-note">
+          <h3>Tu suscripción</h3>
+          <p>En <strong>Mi suscripción</strong> ves el estado de tu plan y tu próximo cobro. El pago se hace en nexustaller.com con Stripe: tarjeta, Apple Pay o Google Pay, con cobro automático mensual. Con OXXO o SPEI no hay cobro automático: el pago se hace manual cada mes. Si llega el día 31 y no hay pago, la app se bloquea hasta que actives tu suscripción; tus datos se quedan guardados.</p>
+        </div>
+        <div class="guide-note">
+          <h3>En la computadora</h3>
+          <p>La app también se usa en la computadora: entra a la <a href="https://tallermecanicoapp-34ad1.web.app" target="_blank" rel="noopener">app web</a> con tu misma cuenta, sin instalar nada. Funciona en Chrome, Edge, Firefox y Safari.</p>
+        </div>
+        <div class="guide-note">
+          <h3>¿Olvidaste tu contraseña?</h3>
+          <p>En la pantalla de inicio de sesión elige «¿Olvidaste tu contraseña?». Te llega un correo con el enlace oficial para cambiarla.</p>
+        </div>
+        <div class="guide-note">
+          <h3>¿Necesitas ayuda?</h3>
+          <p>Escríbenos a <a href="mailto:nexustaller.app@gmail.com">nexustaller.app@gmail.com</a>. Atendemos dudas de la suscripción, de la facturación y de la app en general.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact-band">
+        <div>
+          <h2>¿Le entras? Empieza con el mes gratis</h2>
+          <p>Mándanos un correo y te activamos tu cuenta con los 30 días gratis. Por ese mismo correo resolvemos dudas de la suscripción, de la facturación o de lo que sea de la app.</p>
+          <p class="mail-line">Correo de la app: <a href="mailto:nexustaller.app@gmail.com">nexustaller.app@gmail.com</a></p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-amber" href="mailto:nexustaller.app@gmail.com?subject=Duda%20sobre%20NexusTaller">Escribir a NexusTaller</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="foot-brand">© 2026 NexusTaller · <a href="https://nexustaller.com/">nexustaller.com</a> · La app para llevar tu taller sin libretas · Contacto: <a href="mailto:nexustaller.app@gmail.com">nexustaller.app@gmail.com</a></span>
+    <nav aria-label="Pie de página">
+      <a href="index.html#funciones">Qué hace</a>
+      <a href="index.html#app-web">App web</a>
+      <a href="guia.html">Guía de uso</a>
+      <a href="index.html#precio">Precio</a>
+      <a href="index.html#guia-pac">Guía PAC</a>
+      <a href="index.html#privacidad">Privacidad</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
